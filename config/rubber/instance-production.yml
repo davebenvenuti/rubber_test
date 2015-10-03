@@ -1,0 +1,35 @@
+---
+- !ruby/object:Rubber::Configuration::InstanceItem
+  name: db01
+  domain: foo.com
+  roles:
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: postgresql_master
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: postgresql
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: db
+    options:
+      primary: true
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: collectd
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: monit
+    options: {}
+  instance_id: i-d4b4ac01
+  image_type: c1.medium
+  image_id: ami-92f569fa
+  security_groups:
+  - default
+  - ssh
+- volumes: {}
+  static_ips: {}
+  vpc:
+    id: vpc-ba914dde
+    instance_subnets:
+    - availability_zone: us-east-1b
+      subnet_id: subnet-358c9342
+      cidr: 10.0.1.0/24
