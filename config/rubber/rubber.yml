@@ -205,9 +205,11 @@ web_tools_ssl_port: 8443
 #         to_port: "#{graphite_server_port}"
 #
 security_groups:
-  ssh:
-    description: ssh
+  default:
+    description: default
     rules:
+      - source_group_name: default
+        source_group_account: "#{cloud_providers.aws.account}"    
       - protocol: tcp
         from_port: 22
         to_port: 22
