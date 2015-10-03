@@ -238,7 +238,7 @@ security_groups:
         source_ips: [0.0.0.0/0]
 
 # OPTIONAL: The default security groups to create instances with
-assigned_security_groups: [default,ssh]
+assigned_security_groups: [default]
 roles:
   web:
     assigned_security_groups: [web]
