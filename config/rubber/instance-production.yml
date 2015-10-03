@@ -1,8 +1,0 @@
----
-- volumes: {}
-  static_ips: {}
-  vpc:
-    id: vpc-d117cab5
-    instance_subnets:
-    - subnet_id: subnet-74011e03
-      cidr: 10.0.1.0/24
