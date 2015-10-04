@@ -1,35 +1,40 @@
 ---
 - !ruby/object:Rubber::Configuration::InstanceItem
-  name: db01
+  name: nat
   domain: foo.com
   roles:
   - !ruby/object:Rubber::Configuration::RoleItem
-    name: postgresql_master
+    name: nat_gateway
     options: {}
-  - !ruby/object:Rubber::Configuration::RoleItem
-    name: postgresql
-    options: {}
-  - !ruby/object:Rubber::Configuration::RoleItem
-    name: db
-    options:
-      primary: true
   - !ruby/object:Rubber::Configuration::RoleItem
     name: collectd
     options: {}
   - !ruby/object:Rubber::Configuration::RoleItem
     name: monit
     options: {}
-  instance_id: i-d4b4ac01
+  instance_id: i-5a2ecd8e
   image_type: c1.medium
   image_id: ami-92f569fa
   security_groups:
   - default
-  - ssh
+  external_host: 
+  external_ip: 52.23.194.32
+  internal_host: ip-10-0-0-180.ec2.internal
+  internal_ip: 10.0.0.180
+  zone: us-east-1b
+  provider: aws
+  platform: linux
+  root_device_type: instance-store
 - volumes: {}
   static_ips: {}
   vpc:
-    id: vpc-ba914dde
+    id: vpc-2727fb43
     instance_subnets:
-    - availability_zone: us-east-1b
-      subnet_id: subnet-358c9342
-      cidr: 10.0.1.0/24
+      public:
+      - availability_zone: us-east-1b
+        subnet_id: subnet-7f302e08
+        cidr: 10.0.0.0/24
+      private:
+      - availability_zone: us-east-1b
+        subnet_id: subnet-402d3337
+        cidr: 10.0.1.0/24
