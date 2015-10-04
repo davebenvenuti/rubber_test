@@ -92,7 +92,9 @@ cloud_providers:
     vpc:
       vpc_subnet: 10.0.0.0/16
       instance_subnets:
-        us-east-1b: 10.0.1.0/24
+        us-east-1b:
+          public: 10.0.0.0/24
+          private: 10.0.1.0/24
 
     # OPTIONAL: Provide fog-specific options directly.  This should only be used if you need a special setting that
     # Rubber does not directly expose.  Since these settings will be passed directly through to fog, we can't make any
