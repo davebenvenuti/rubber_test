@@ -32,7 +32,7 @@ echo "1" > /proc/sys/net/ipv4/ip_forward
 echo "   Enabling DynamicAddr.."
 echo "1" > /proc/sys/net/ipv4/ip_dynaddr
 echo "   Disabling redirects.."
-echo "0" > /proc/sys/net/ipv4/eth0/send_redirects
+echo "0" > /proc/sys/net/ipv4/conf/eth0/send_redirects
 echo "   Clearing any existing NAT rules and setting default policy.."
 
 # Share public Internet connection.
