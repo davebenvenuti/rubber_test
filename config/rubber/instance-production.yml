@@ -25,6 +25,40 @@
   provider: aws
   platform: linux
   root_device_type: instance-store
+- !ruby/object:Rubber::Configuration::InstanceItem
+  name: db01
+  domain: foo.com
+  roles:
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: postgresql_master
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: postgresql
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: db
+    options:
+      primary: true
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: collectd
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: monit
+    options: {}
+  instance_id: i-bd12ff69
+  image_type: c1.medium
+  image_id: ami-92f569fa
+  security_groups:
+  - default
+  external_host: 
+  external_ip: 52.23.157.33
+  internal_host: ip-10-0-1-33.ec2.internal
+  internal_ip: 10.0.1.33
+  zone: us-east-1b
+  provider: aws
+  platform: linux
+  root_device_type: instance-store
+  private: true
 - volumes: {}
   static_ips: {}
   vpc:
