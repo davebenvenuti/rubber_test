@@ -7,12 +7,6 @@ echo -e "\n\nLoading simple rc.firewall-iptables version $FWVER..\n"
 DEPMOD=/sbin/depmod
 MODPROBE=/sbin/modprobe
 
-EXTIF="eth0"
-INTIF="eth1"
-#INTIF2="eth0"
-echo "   External Interface:  $EXTIF"
-echo "   Internal Interface:  $INTIF"
-
 #======================================================================
 #== No editing beyond this line is required for initial MASQ testing ==
 echo -en "   loading modules: "
@@ -37,12 +31,13 @@ echo "   Enabling forwarding.."
 echo "1" > /proc/sys/net/ipv4/ip_forward
 echo "   Enabling DynamicAddr.."
 echo "1" > /proc/sys/net/ipv4/ip_dynaddr
+echo "   Disabling redirects.."
+echo "0" > /proc/sys/net/ipv4/eth0/send_redirects
 echo "   Clearing any existing NAT rules and setting default policy.."
 
 # Share public Internet connection.
 iptables --table nat --flush
-iptables --table nat --append POSTROUTING --out-interface $EXTIF -j MASQUERADE
-iptables -A FORWARD -i "$EXTIF" -o "$INTIF" -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
-iptables -A FORWARD -i "$INTIF" -o "$EXTIF" -j ACCEPT
+iptables -t nat -C POSTROUTING -o eth0 -s 10.0.0.0/24 -j MASQUERADE 2> /dev/null || iptables -t nat -A POSTROUTING -o eth0 -s 10.0.0.0/24 -j MASQUERADE
 
 echo -e "\nrc.firewall-iptables v$FWVER done.\n"
+
