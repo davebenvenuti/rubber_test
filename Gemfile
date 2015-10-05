@@ -38,8 +38,8 @@ group :development, :test do
   gem 'byebug'
 end
 
-#gem 'rubber', git: 'git@github.com:davebenvenuti/rubber.git', branch: 'vpc'
-gem 'rubber', path: '/home/dave/src/rubber'
+gem 'rubber', git: 'git@github.com:davebenvenuti/rubber.git', branch: 'vpc'
+#gem 'rubber', path: '/home/dave/src/rubber'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
