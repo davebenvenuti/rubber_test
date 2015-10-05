@@ -22,7 +22,7 @@ set :user, 'root'
 set :password, nil
 
 ssh_options[:forward_agent] = true
-ssh_options[:auth_methods] = ['publickey']
+ssh_options[:auth_methods] = nil
 ssh_options[:verbose] = :debug 
 
 if ENV['SSH_GATEWAY'] == 'true'
