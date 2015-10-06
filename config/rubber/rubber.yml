@@ -1,5 +1,5 @@
 # REQUIRED: The name of your application
-app_name: your_app_name
+app_name: rubber_test
 
 # REQUIRED: The system user to run your app servers as
 app_user: app
@@ -89,12 +89,8 @@ cloud_providers:
     image_type: c1.medium
     image_id: ami-92f569fa
 
-    vpc:
-      vpc_subnet: 10.0.0.0/16
-      instance_subnets:
-        us-east-1b:
-          public: 10.0.0.0/24
-          private: 10.0.1.0/24
+    vpc_alias: "#{app_name}_#{Rubber.env == 'production' ? 'production' : 'development'}"
+    vpc_cidr: 10.0.0.0/16
 
     # OPTIONAL: Provide fog-specific options directly.  This should only be used if you need a special setting that
     # Rubber does not directly expose.  Since these settings will be passed directly through to fog, we can't make any
@@ -259,7 +255,7 @@ auto_security_groups: false
 # This makes it safer to have staging and production coexist on the same EC2
 # account, or even multiple apps.  NB: due to the security group limits per instance
 # in EC2 with VPCs, this option should only be enabled if you're using EC2 Classic.
-isolate_security_groups: false
+isolate_security_groups: true
 
 # OPTIONAL: Prompts one to sync security group rules when the ones in amazon
 # differ from those in rubber
