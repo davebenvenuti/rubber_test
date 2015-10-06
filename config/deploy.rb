@@ -25,9 +25,8 @@ ssh_options[:forward_agent] = true
 ssh_options[:auth_methods] = nil
 ssh_options[:verbose] = :debug 
 
-if ENV['SSH_GATEWAY'] == 'true'
-  set :gateway, 'nat.foo.com'
-end
+# Just always use the gateway even though every machine doesn't require it
+set :gateway, 'nat.foo.com'
 
 # Use sudo with user rails for cap deploy:[stop|start|restart]
 # This way exposed services (mongrel) aren't running as a privileged user
