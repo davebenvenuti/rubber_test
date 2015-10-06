@@ -1,0 +1,13 @@
+hosts:
+  db01:
+    instance_roles: postgresql_master
+    private_nic:
+      subnet_cidr: '10.0.1.0/24'
+      gateway: "#{rubber_instances.for_role('nat_gateway').first.instance_id}"
+
+  nat:
+    instance_roles: nat_gateway
+    private_nic:
+      subnet_cidr: '10.0.0.0/24'
+      gateway: public
+
