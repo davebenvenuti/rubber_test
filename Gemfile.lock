@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:davebenvenuti/rubber.git
-  revision: 73df2971f965f0856e0c5ca1290ebc34d49752e9
+  revision: d71c73e664ef9afb96cb6a27e41d84e540a9ed44
   branch: vpc
   specs:
     rubber (3.1.0)
