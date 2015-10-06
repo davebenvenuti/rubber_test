@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:davebenvenuti/rubber.git
-  revision: 4f5db4227ca611285e560fca226392e21e30da72
+  revision: 73df2971f965f0856e0c5ca1290ebc34d49752e9
   branch: vpc
   specs:
     rubber (3.1.0)
@@ -13,7 +13,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    CFPropertyList (2.3.1)
+    CFPropertyList (2.3.2)
     actionmailer (4.2.4)
       actionpack (= 4.2.4)
       actionview (= 4.2.4)
