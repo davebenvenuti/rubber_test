@@ -60,6 +60,67 @@
   provider: aws
   platform: linux
   root_device_type: instance-store
+- !ruby/object:Rubber::Configuration::InstanceItem
+  name: app01
+  domain: foo.com
+  roles:
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: app
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: unicorn
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: nginx
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: collectd
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: monit
+    options: {}
+  instance_id: i-42986696
+  image_type: c1.medium
+  image_id: ami-92f569fa
+  security_groups:
+  - rubber_test_production_default
+  zone: us-east-1b
+  gateway: i-5616e982
+  external_host: 
+  external_ip: 
+  internal_host: ip-10-0-1-91.ec2.internal
+  internal_ip: 10.0.1.91
+  provider: aws
+  platform: linux
+  root_device_type: instance-store
+- !ruby/object:Rubber::Configuration::InstanceItem
+  name: web01
+  domain: foo.com
+  roles:
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: web
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: collectd
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: monit
+    options: {}
+  instance_id: i-f3956b27
+  image_type: c1.medium
+  image_id: ami-92f569fa
+  security_groups:
+  - rubber_test_production_default
+  - rubber_test_production_web
+  zone: us-east-1b
+  gateway: public
+  external_host: 
+  external_ip: 52.91.215.27
+  internal_host: ip-10-0-0-37.ec2.internal
+  internal_ip: 10.0.0.37
+  provider: aws
+  platform: linux
+  root_device_type: instance-store
 - volumes: {}
   static_ips: {}
   vpc: {}
