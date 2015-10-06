@@ -1,14 +1,65 @@
 ---
+- !ruby/object:Rubber::Configuration::InstanceItem
+  name: nat
+  domain: foo.com
+  roles:
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: nat_gateway
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: collectd
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: monit
+    options: {}
+  instance_id: i-5616e982
+  image_type: c1.medium
+  image_id: ami-92f569fa
+  security_groups:
+  - rubber_test_production_default
+  zone: us-east-1b
+  gateway: public
+  external_host: 
+  external_ip: 54.86.155.48
+  internal_host: ip-10-0-0-136.ec2.internal
+  internal_ip: 10.0.0.136
+  provider: aws
+  platform: linux
+  root_device_type: instance-store
+- !ruby/object:Rubber::Configuration::InstanceItem
+  name: db01
+  domain: foo.com
+  roles:
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: postgresql_master
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: postgresql
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: db
+    options:
+      primary: true
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: collectd
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: monit
+    options: {}
+  instance_id: i-6b5da2bf
+  image_type: c1.medium
+  image_id: ami-92f569fa
+  security_groups:
+  - rubber_test_production_default
+  zone: us-east-1b
+  gateway: i-5616e982
+  external_host: 
+  external_ip: 
+  internal_host: ip-10-0-1-129.ec2.internal
+  internal_ip: 10.0.1.129
+  provider: aws
+  platform: linux
+  root_device_type: instance-store
 - volumes: {}
   static_ips: {}
-  vpc:
-    id: vpc-2727fb43
-    instance_subnets:
-      public:
-      - availability_zone: us-east-1b
-        subnet_id: subnet-7f302e08
-        cidr: 10.0.0.0/24
-      private:
-      - availability_zone: us-east-1b
-        subnet_id: subnet-402d3337
-        cidr: 10.0.1.0/24
+  vpc: {}
