@@ -106,6 +106,9 @@
   - !ruby/object:Rubber::Configuration::RoleItem
     name: monit
     options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
+    name: haproxy
+    options: {}
   instance_id: i-f3956b27
   image_type: c1.medium
   image_id: ami-92f569fa
