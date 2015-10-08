@@ -12,7 +12,7 @@
   - !ruby/object:Rubber::Configuration::RoleItem
     name: monit
     options: {}
-  instance_id: i-5616e982
+  instance_id: i-1c67aec8
   image_type: c1.medium
   image_id: ami-92f569fa
   security_groups:
@@ -20,9 +20,9 @@
   zone: us-east-1b
   gateway: public
   external_host: 
-  external_ip: 54.86.155.48
-  internal_host: ip-10-0-0-136.ec2.internal
-  internal_ip: 10.0.0.136
+  external_ip: 54.152.140.163
+  internal_host: ip-10-0-0-251.ec2.internal
+  internal_ip: 10.0.0.251
   provider: aws
   platform: linux
   root_device_type: instance-store
@@ -46,17 +46,17 @@
   - !ruby/object:Rubber::Configuration::RoleItem
     name: monit
     options: {}
-  instance_id: i-6b5da2bf
+  instance_id: i-4c0ac298
   image_type: c1.medium
   image_id: ami-92f569fa
   security_groups:
   - rubber_test_production_default
   zone: us-east-1b
-  gateway: i-5616e982
+  gateway: i-1c67aec8
   external_host: 
   external_ip: 
-  internal_host: ip-10-0-1-129.ec2.internal
-  internal_ip: 10.0.1.129
+  internal_host: ip-10-0-1-225.ec2.internal
+  internal_ip: 10.0.1.225
   provider: aws
   platform: linux
   root_device_type: instance-store
@@ -79,17 +79,17 @@
   - !ruby/object:Rubber::Configuration::RoleItem
     name: monit
     options: {}
-  instance_id: i-42986696
+  instance_id: i-e836fe3c
   image_type: c1.medium
   image_id: ami-92f569fa
   security_groups:
   - rubber_test_production_default
   zone: us-east-1b
-  gateway: i-5616e982
+  gateway: i-1c67aec8
   external_host: 
   external_ip: 
-  internal_host: ip-10-0-1-91.ec2.internal
-  internal_ip: 10.0.1.91
+  internal_host: ip-10-0-1-31.ec2.internal
+  internal_ip: 10.0.1.31
   provider: aws
   platform: linux
   root_device_type: instance-store
@@ -101,15 +101,15 @@
     name: web
     options: {}
   - !ruby/object:Rubber::Configuration::RoleItem
+    name: haproxy
+    options: {}
+  - !ruby/object:Rubber::Configuration::RoleItem
     name: collectd
     options: {}
   - !ruby/object:Rubber::Configuration::RoleItem
     name: monit
     options: {}
-  - !ruby/object:Rubber::Configuration::RoleItem
-    name: haproxy
-    options: {}
-  instance_id: i-f3956b27
+  instance_id: i-5f7db58b
   image_type: c1.medium
   image_id: ami-92f569fa
   security_groups:
@@ -118,12 +118,13 @@
   zone: us-east-1b
   gateway: public
   external_host: 
-  external_ip: 52.91.215.27
-  internal_host: ip-10-0-0-37.ec2.internal
-  internal_ip: 10.0.0.37
+  external_ip: 54.210.229.103
+  internal_host: ip-10-0-0-141.ec2.internal
+  internal_ip: 10.0.0.141
   provider: aws
   platform: linux
   root_device_type: instance-store
+  network: rubber_test_production
 - volumes: {}
   static_ips: {}
   vpc: {}
